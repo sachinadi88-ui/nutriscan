@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-emerald-50 text-slate-900 antialiased font-sans m-0 min-h-screen;
+  }
+}
+
+.glass-card {
+  @apply bg-white border border-emerald-100 shadow-sm rounded-3xl overflow-hidden;
+}
+
+.health-pill {
+  @apply text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full;
+}
