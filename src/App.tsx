@@ -15,9 +15,16 @@ export default function App() {
   const [result, setResult] = useState<ProductAnalysis | null>(null);
   const [error, setError] = useState<string | null>(null);
 
+  const isApiKeyMissing = !process.env.GEMINI_API_KEY;
+
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!query.trim()) return;
+
+    if (isApiKeyMissing) {
+      setError('GEMINI_API_KEY is missing. Please set it in your environment variables on Vercel.');
+      return;
+    }
 
     setLoading(true);
     setError(null);
